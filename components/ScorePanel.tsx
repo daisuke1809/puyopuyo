@@ -17,7 +17,7 @@ export function ScorePanel({ gameState }: ScorePanelProps) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h2 className="text-sm font-bold text-yellow-400 mb-2">💰 経験値</h2>
+        <h2 className="text-sm font-bold text-yellow-400 mb-2">💰 スコア</h2>
         <p className="text-4xl font-bold text-yellow-300 font-serif" style={{
           textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
         }}>
