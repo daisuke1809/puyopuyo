@@ -54,7 +54,7 @@ export function useGameLoop() {
         if (e.key === 'r' || e.key === 'R') {
           resetGame();
         }
-        if (e.key === 'p' || e.key === 'P' || e.key === ' ') {
+        if (e.key === 'p' || e.key === 'P') {
           togglePause();
         }
         return;
@@ -72,6 +72,7 @@ export function useGameLoop() {
         case 'ArrowUp':
         case 'x':
         case 'X':
+        case ' ':
           e.preventDefault();
           rotateClockwise();
           break;
@@ -84,7 +85,6 @@ export function useGameLoop() {
           e.preventDefault();
           setIsFastFalling(true);
           break;
-        case ' ':
         case 'p':
         case 'P':
           e.preventDefault();

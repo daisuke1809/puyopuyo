@@ -75,7 +75,7 @@ export function ScorePanel({ gameState }: ScorePanelProps) {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">回転</span>
-            <span className="font-mono bg-slate-950/60 px-2 py-1 rounded border border-slate-600">↑ Z X</span>
+            <span className="font-mono bg-slate-950/60 px-2 py-1 rounded border border-slate-600">↑ Space Z X</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">高速</span>
@@ -83,7 +83,7 @@ export function ScorePanel({ gameState }: ScorePanelProps) {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">中断</span>
-            <span className="font-mono bg-slate-950/60 px-2 py-1 rounded border border-slate-600">Space P</span>
+            <span className="font-mono bg-slate-950/60 px-2 py-1 rounded border border-slate-600">P</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-slate-400">再挑戦</span>
