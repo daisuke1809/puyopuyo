@@ -62,7 +62,7 @@ export default function Home() {
           className="mt-8 text-center"
         >
           <p className="text-yellow-300 text-sm font-semibold">⚡ 同じ色のスライムを4つ以上つなげて消す！</p>
-          <p className="mt-1 text-blue-200 text-sm font-semibold">🔥 連鎖で経験値アップ！</p>
+          <p className="mt-1 text-blue-200 text-sm font-semibold">🔥 連鎖でスコアアップ！</p>
         </motion.div>
       </div>
     </div>
