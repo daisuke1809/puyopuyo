@@ -43,7 +43,7 @@ export function generateFallingPair(): FallingPair {
 export function createInitialGameState(): GameState {
   return {
     board: createEmptyBoard(),
-    currentPair: generateFallingPair(),
+    currentPair: null, // Start with no current pair, spawnNextPair will be called
     nextPair: generateFallingPair(),
     score: 0,
     currentChain: 0,
