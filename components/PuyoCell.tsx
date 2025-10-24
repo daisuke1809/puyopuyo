@@ -53,9 +53,6 @@ export function PuyoCell({ color, isPopping = false }: PuyoCellProps) {
       <div className="absolute inset-0 rounded-full overflow-hidden">
         {/* 上部のハイライト */}
         <div className="absolute top-1 left-1/4 w-1/2 h-1/3 bg-white/40 rounded-full blur-md" />
-
-        {/* 内側の輝き */}
-        <div className="absolute inset-2 rounded-full bg-gradient-to-br from-white/30 via-transparent to-black/20" />
       </div>
 
       {/* DQ風の目 */}
