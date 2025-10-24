@@ -19,11 +19,14 @@ export function createEmptyBoard(): Cell[][] {
   );
 }
 
+let puyoIdCounter = 0;
+
 export function generateRandomPuyo(): Puyo {
   const color = COLORS[Math.floor(Math.random() * COLORS.length)];
+  puyoIdCounter++;
   return {
     color,
-    id: `${Date.now()}-${Math.random()}`,
+    id: `puyo-${Date.now()}-${puyoIdCounter}-${Math.random().toString(36).substring(2, 9)}`,
   };
 }
 
@@ -340,9 +343,18 @@ export function checkGameOver(state: GameState): boolean {
 export function spawnNextPair(state: GameState): GameState {
   if (state.currentPair !== null) return state;
 
+  // Create a deep copy of nextPair to ensure it's not mutated
+  const nextPairCopy = state.nextPair ? {
+    ...state.nextPair,
+    main: { ...state.nextPair.main },
+    sub: { ...state.nextPair.sub },
+    position: { ...state.nextPair.position },
+    subOffset: { ...state.nextPair.subOffset },
+  } : null;
+
   const newState = {
     ...state,
-    currentPair: state.nextPair,
+    currentPair: nextPairCopy,
     nextPair: generateFallingPair(),
   };
 
