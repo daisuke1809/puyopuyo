@@ -22,6 +22,7 @@ export function useGameLoop() {
   const [isFastFalling, setIsFastFalling] = useState(false);
   const lastUpdateRef = useRef<number>(Date.now());
   const animationFrameRef = useRef<number | null>(null);
+  const isInitialMount = useRef(true);
 
   const moveLeft = useCallback(() => {
     setGameState((state) => movePair(state, 0, -1));
@@ -44,7 +45,8 @@ export function useGameLoop() {
   }, []);
 
   const resetGame = useCallback(() => {
-    setGameState(createInitialGameState());
+    const newState = createInitialGameState();
+    setGameState(spawnNextPair(newState));
     setIsFastFalling(false);
   }, []);
 
@@ -164,6 +166,14 @@ export function useGameLoop() {
 
     animationFrameRef.current = requestAnimationFrame(gameLoop);
   }, [isFastFalling]);
+
+  // Initialize first pair immediately on mount
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      setGameState((state) => spawnNextPair(state));
+    }
+  }, []);
 
   useEffect(() => {
     animationFrameRef.current = requestAnimationFrame(gameLoop);
